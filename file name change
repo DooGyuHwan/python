@@ -1,0 +1,8 @@
+import os
+from os import rename
+
+dir_url = '/home/qisens/localizer_new_data _2/annotations/Type01/'
+files = os.listdir(dir_url)
+for f in files:
+    print(f)
+    rename(dir_url + f, dir_url + f.replace('T02', 'T01'))
