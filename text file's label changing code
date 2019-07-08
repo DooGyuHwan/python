@@ -1,0 +1,29 @@
+import os
+import io
+
+
+dir_url = '/home/qisens/lacalizer_new_bmt(annotation수정해놓은것)/annotations/Type18'
+
+for (paths, dirs, files) in os.walk(dir_url):
+    for file in files:
+        file_path = os.path.join(paths, file)
+        with open(file_path, "r") as file :
+            line = file.readline()
+            label_list = line.split(' ')
+            if(label_list[0] != '18'):
+                label_list[0] = '18'
+                with open(file_path, "w") as file:
+                    label=' '.join(label_list)
+                    file.write(label)
+            else:
+                pass
+
+
+
+                #
+                # with open(file_path, "w") as file :
+                #         if label[0] != 1 :
+                #             print('Go home')
+                #         else :
+                #             print('Dont Go home')
+                #
