@@ -1,2 +1,2 @@
-# python
+# DooGyuHwan
 Python / Tensorflow / Deep-learning
