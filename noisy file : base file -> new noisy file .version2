@@ -1,0 +1,63 @@
+import os
+from os import rename
+import shutil
+
+# def search(dir):
+#     files = os.listdir(dir)
+#     for file in files:
+#         fullFilename = os.path.join(dir, file)
+#         if os.path.isdir(fullFilename):
+#             search(fullFilename)
+#         else:
+#             print(fullFilename)
+#
+#
+# search("/home/qisens/localizer_new_base_data/images/")
+
+# dir_url = '/home/qisens/localizer_data/localizer/images/noisy_30000/base_30000_001'
+#
+# dir_url_2 = '/home/qisens/localizer_new_base_data/images/Type01'
+# files_2 = os.listdir(dir_url_2)
+#
+# dir_url = '/home/qisens/localizer_new_base_data(annotation수정해놓은것)/annotations/Type18'
+#
+# for f_2 in files_2:
+#     for f in files:
+#         file_vs = files.split('_')
+#         file_vs_2 = files_2.split('_')
+#         if(file_vs[1:7] == file_vs_2[1:7]):
+#             print('Good')
+#         else:
+#             pass
+
+dir_url = '/home/qisens/localizer_data/localizer/images/noisy_30000/base_30000_023/' # noisy 이미지들이 분류되어 있지 않은 상태로 있는 폴더 디렉토리
+dir_url_2 = '/home/qisens/localizer_new_base_data/images/' # 다시 타입별로 분류해놓은 이미지 폴더 디렉토리
+dir_url_3 ='/home/qisens/localizer_new_noisy_data/images/' # 저장해야될 폴더 디렉토리
+
+for (paths, dirs, files) in os.walk(dir_url):
+    for (paths_2, dirs_2, files_2) in os.walk(dir_url_2):
+        for f in files:
+            for f_2 in files_2:
+                image_path = os.path.join(paths_2, f_2)
+                basename, filename = os.path.split(image_path)
+                folder_ls = basename.split('/')
+                folder_name = folder_ls[-1]  # folder name을 얻을 수 있음
+
+                file_vs = f.split('_')
+                file_vs_2 = f_2.split('_')
+
+                if(file_vs[1:7] == file_vs_2[1:7]):
+                    file_ = '_'.join(file_vs)
+                    file__ = '_'.join(file_vs_2)
+                    print(file_)
+                    shutil.copy(dir_url+file_,dir_url_3+folder_name+'/'+file_)
+                else:
+                    pass
+
+
+####위에 올린 version1 보다 좀 더 깔끔한 코드(folder name직접 안바꿔줘도 됨, 단 base폴더이름은 바꿔줘야함)
+
+
+
+
+
