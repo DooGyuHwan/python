@@ -1,0 +1,14 @@
+import os
+
+
+def search(dir):
+    files = os.listdir(dir)
+    for file in files:
+        fullFilename = os.path.join(dir, file)
+        if os.path.isdir(fullFilename):
+            search(fullFilename)
+        else:
+            print(fullFilename)
+
+
+search("/home/qisens/localizer_data/localizer/images/noisy_30000")
