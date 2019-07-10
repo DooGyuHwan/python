@@ -1,0 +1,1 @@
+print (len(os.walk(dir_url).__next__()[2])) #dir_url is a folder's directory
