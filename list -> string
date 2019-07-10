@@ -1,0 +1,11 @@
+
+files = random.sample(list,int(0.1*(len(os.walk(dir_url).__next__()[2]))))
+
+str = ""
+
+for f in files:
+
+    str += f
+    print(str)
+    str = ''
+    
