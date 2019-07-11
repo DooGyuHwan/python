@@ -1,0 +1,29 @@
+import random
+import os
+import shutil
+
+dir_url = '/home/qisens/localizer_new_data_final/images/Type18/'
+dir_url_2 = '/home/qisens/localizer_new_data_final_validation/images/Type18/'
+
+# dir_url_3 = '/home/qisens/localizer_new_data_final/annotations/Type18/'
+# dir_url_4 = '/home/qisens/localizer_new_data_final_validation/annotations/Type18?'
+
+
+list = os.listdir(dir_url)
+print (len(os.walk(dir_url).__next__()[2]))
+print(int(0.1*(len(os.walk(dir_url).__next__()[2]))))
+files = random.sample(list,int(0.1*(len(os.walk(dir_url).__next__()[2]))))
+print(files)
+
+
+str = ""
+
+for f in files:
+
+    str += f
+    print(str)
+    shutil.copy(dir_url + str, dir_url_2 + str)
+    str = ''
+
+
+
