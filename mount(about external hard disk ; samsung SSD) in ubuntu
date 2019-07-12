@@ -1,0 +1,4 @@
+* mount(about external hard disk ; samsung SSD) in ubuntu
+
+mount : install GParted -> sudo mount -t ntfs /dev/sdb1 /media/hdd
+unmount : sudo umount -t ntfs /dev/sdb1 /media/hdd
