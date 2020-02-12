@@ -1,2 +1,2 @@
 # DooGyuHwan
-Python / Tensorflow / Deep-learning
+Python / Tensorflow / Deep-learning / OCR / Image Processing
